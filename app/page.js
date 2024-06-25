@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import opentype from "opentype.js";
 import textToSvg from "text-to-svg";
 import { ornaments } from "./ornaments";
 
@@ -113,14 +112,6 @@ export default function Home() {
           fill={`none`}
           stroke="red"
         />
-        <rect
-          x={`0`}
-          y={`${3 * MM}`}
-          width={width}
-          height={height - 3 * MM * 2}
-          fill={`none`}
-          stroke="none"
-        />
       </svg>
       <table className="table-auto">
         <tbody>
@@ -128,42 +119,7 @@ export default function Home() {
             <td>
               <input
                 type="number"
-                value={(padding / MM).toFixed(2)}
-                onChange={(e) => {
-                  setPadding(e.target.value * MM);
-                }}
-                className="block text-center text-[1rem] rounded-md border-0 py-1.5 pl-7 pr-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                placeholder="0.00"
-              />
-            </td>
-            <td>
-              <button
-                onClick={() => {
-                  setPadding((prevState) => prevState + MM);
-                }}
-                className="block text-center text-[1rem] rounded-md border-0 py-1.5 pl-7 pr-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                placeholder="0.00"
-              >
-                +
-              </button>
-            </td>
-            <td>
-              <button
-                onClick={() => {
-                  setPadding((prevState) => prevState - MM);
-                }}
-                className="block text-center text-[1rem] rounded-md border-0 py-1.5 pl-7 pr-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:leading-6 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                placeholder="0.00"
-              >
-                -
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <input
-                type="number"
-                value={parseInt(width / MM)}
+                value={width / MM}
                 onChange={(e) => {
                   setWidth(e.target.value * MM);
                 }}
@@ -198,7 +154,7 @@ export default function Home() {
             <td>
               <input
                 type="number"
-                value={parseInt(height / MM)}
+                value={height / MM}
                 onChange={(e) => {
                   setHeight(e.target.value * MM);
                 }}
