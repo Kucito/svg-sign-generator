@@ -7,7 +7,7 @@ const MM = 3.779528;
 
 export default function Home() {
   //States
-  const [padding, setPadding] = useState(3 * MM);
+  const [padding, setPadding] = useState(2.7 * MM);
   const [width, setWidth] = useState(256 * MM);
   const [height, setHeight] = useState(50 * MM);
   const [fontSize, setFontSize] = useState(32 * MM);
