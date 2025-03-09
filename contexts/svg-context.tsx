@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { createContext, useContext, useReducer, ReactNode } from "react";
+//@ts-expect-error
 import textToSvg from "text-to-svg";
 
 const MM = 3.779528;
@@ -113,7 +115,7 @@ export const SvgProvider: React.FC<{ children: ReactNode }> = ({
       attributes: { fill: "black", id: "svgText" },
     };
 
-    textToSvg.load("./font.ttf", function (err, font) {
+    textToSvg.load("./font.ttf", function (err: any, font: any) {
       if (err || !font) return;
 
       const svg = font.getPath(state.text, options);
@@ -157,7 +159,7 @@ export const SvgProvider: React.FC<{ children: ReactNode }> = ({
       attributes: { fill: "black", id: "svgText" },
     };
 
-    textToSvg.load("./font.ttf", function (err, font) {
+    textToSvg.load("./font.ttf", function (err: any, font: any) {
       if (err || !font) return;
       generateSvgForWordInternal(word, font, options);
     });
